@@ -1,7 +1,7 @@
-# React + Vite
+# React + Vite + TypeScript Portfolio
 
 <p align="center">
-  The fourth iteration of <a href="" target="_blank"></a> built with <a href="https://react.dev/" target="_blank">React</a>, Tailwind.CSS and hosted with <a href="" target="_blank">Vercel</a>
+  The fourth iteration of my portfolio built with <a href="https://react.dev/" target="_blank">React</a>, Tailwind.CSS and hosted with <a href="https://portfolio-xi-three-23.vercel.app/" target="_blank">Vercel</a>
 </p>
 
 <p align="center">
