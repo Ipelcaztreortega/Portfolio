@@ -38,12 +38,12 @@ export default function Navbar() {
           <div className="flex md:hidden">
             <button onClick={toggleMenu} className="text-gray-600 focus:outline-none">
               <img
-                className={`w-10 ${isOpen ? 'hidden' : 'block'}`}
+                className={`w-4 ${isOpen ? 'hidden' : 'block'}`}
                 src="/images/menu-burger2.png"
                 alt="menu"
               />
               <img
-                className={`w-10 ${isOpen ? 'block' : 'hidden'}`}
+                className={`w-4 ${isOpen ? 'block' : 'hidden'}`}
                 src="/images/cross.png"
                 alt="close"
               />
@@ -52,16 +52,16 @@ export default function Navbar() {
 
           {/* This div will be hidden on small screens */}
           <div className={`hidden md:flex md:flex-row md:items-center md:ml-auto`}>
-            <Link to="about" spy={true} smooth={true} offset={-70} duration={550} className="block mt-4 md:mt-0 text-gray-600 hover:text-red-900 font-bold mx-2">
+            <Link to="about" spy={true} smooth={true} offset={-70} duration={550} className="block mt-4 md:mt-0 text-gray-600 hover:text-red-900 font-bold mx-2 cursor-pointer">
               About
             </Link>
-            <Link to="projects" spy={true} smooth={true} offset={-70} duration={550} className="block mt-4 md:mt-0 text-gray-600 hover:text-red-900 font-bold mx-2">
+            <Link to="projects" spy={true} smooth={true} offset={-70} duration={550} className="block mt-4 md:mt-0 text-gray-600 hover:text-red-900 font-bold mx-2 cursor-pointer">
               Projects
             </Link>
-            <Link to="contact" spy={true} smooth={true} offset={-70} duration={550} className="block mt-4 md:mt-0 text-gray-600 hover:text-red-900 font-bold mx-2">
+            <Link to="contact" spy={true} smooth={true} offset={-70} duration={550} className="block mt-4 md:mt-0 text-gray-600 hover:text-red-900 font-bold mx-2 cursor-pointer">
               Contact
             </Link>
-            <a href="./IrvinPelcaztreOrtegaResumeMx2.pdf" target="_blank" rel="noopener noreferrer" className="block mt-4 md:mt-0 text-gray-600 hover:text-red-900 font-bold mx-2">
+            <a href="./IrvinPelcaztreOrtegaResumeMx2.pdf" target="_blank" rel="noopener noreferrer" className="block mt-4 md:mt-0 text-gray-600 hover:text-red-900 font-bold mx-2 cursor-pointer">
               Resume
             </a>
           </div>
@@ -76,16 +76,16 @@ export default function Navbar() {
             <button onClick={toggleMenu} className="absolute top-4 right-4 text-gray-600 focus:outline-none">
               <img className="w-8" src="/images/cross.png" alt="close" />
             </button>
-            <Link to="about" spy={true} smooth={true} offset={-70} duration={650} className=" block mt-4 text-gray-600 hover:text-red-900  font-bold mx-2">
+            <Link to="about" spy={true} smooth={true} offset={-70} duration={650} className=" block mt-4 text-gray-600 hover:text-red-900  font-bold mx-2 cursor-pointer">
               About
             </Link>
-            <Link to="projects" spy={true} smooth={true} offset={-70} duration={650} className="block mt-4 text-gray-600 hover:text-red-900 font-bold mx-2">
+            <Link to="projects" spy={true} smooth={true} offset={-70} duration={650} className="block mt-4 text-gray-600 hover:text-red-900 font-bold mx-2 cursor-pointer">
               Projects
             </Link>
-            <Link to="contact" spy={true} smooth={true} offset={-70} duration={650} className="block mt-4 text-gray-600 hover:text-red-900 font-bold mx-2">
+            <Link to="contact" spy={true} smooth={true} offset={-70} duration={650} className="block mt-4 text-gray-600 hover:text-red-900 font-bold mx-2 cursor-pointer">
               Contact
             </Link>
-            <a href="./IrvinPelcaztreOrtegaResumeMx2.pdf" target="_blank" rel="noopener noreferrer" className="block mt-4 text-gray-600 hover:text-red-900 font-bold mx-2">
+            <a href="./IrvinPelcaztreOrtegaResumeMx2.pdf" target="_blank" rel="noopener noreferrer" className="block mt-4 text-gray-600 hover:text-red-900 font-bold mx-2 cursor-pointer">
               Resume
             </a>
           </div>

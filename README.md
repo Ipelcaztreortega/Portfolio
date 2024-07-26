@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-    For future changes, adding animations, adding responsivness to smaller window size, adding more sections with more projects or experience.
+    For future changes, adding more to my experience, updating  my project section, and working on adding google analytics.
 </p>
 
 
