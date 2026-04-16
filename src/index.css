@@ -5,22 +5,22 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+    html {
+        scroll-behavior: smooth;
+    }
 
-  body {
-    font-family: 'Manrope', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    background-color: #ffffff;
-    color: #111111;
-  }
+    body {
+        font-family: 'Manrope', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        background-color: #ffffff;
+        color: #111111;
+    }
 
-  .font-serif {
-    font-family: 'DM Serif Display', serif;
-  }
+    .font-serif {
+        font-family: 'DM Serif Display', serif;
+    }
 
-  .font-mono {
-    font-family: 'DM Mono', monospace;
-  }
+    .font-mono {
+        font-family: 'DM Mono', monospace;
+    }
 }

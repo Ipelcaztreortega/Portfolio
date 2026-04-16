@@ -1,7 +1,6 @@
 const Footer = () => {
   return (
     <>
-      {/* Contact */}
       <div id="contact" className="border-b border-gray-100 px-6 py-20">
         <div className="max-w-3xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-end gap-8">
           <h2 className="font-serif text-4xl md:text-5xl font-normal leading-tight">
@@ -10,7 +9,7 @@ const Footer = () => {
           </h2>
           <div className="flex flex-col gap-3 sm:items-end">
             <a
-              href="mailto:"
+              href="mailto:ipelcaztreortega@gmail.com"
               className="font-mono text-xs tracking-widest uppercase text-gray-400 hover:text-gray-900 transition-colors duration-200"
             >
               Email ↗
@@ -35,14 +34,13 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Footer */}
       <footer className="px-6 py-6">
         <div className="max-w-3xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
           <p className="font-mono text-xs text-gray-400 tracking-tight">
-            Built by Irvin Pelcaztre-Ortega — 2024
+            Built by Irvin Pelcaztre-Ortega — 2026
           </p>
           <p className="font-mono text-xs text-gray-400 tracking-tight">
-            Georgia State University · CS · Data Science
+            Georgia Tech · M.S. Computer Science · Computing Systems
           </p>
         </div>
       </footer>

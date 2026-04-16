@@ -37,7 +37,7 @@ export default function Navbar() {
               </Link>
             ))}
             <a
-              href="./IrvinPelcaztreOrtegaResumeMx2.pdf"
+              href="../../public/irvin_ortega_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className={linkClass}
@@ -77,7 +77,7 @@ export default function Navbar() {
               </Link>
             ))}
             <a
-              href="./IrvinPelcaztreOrtegaResumeMx2.pdf"
+              href="../../public/irvin_ortega_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className={`${linkClass} text-base`}
