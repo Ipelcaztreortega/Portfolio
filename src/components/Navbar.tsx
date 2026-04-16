@@ -2,91 +2,88 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  const [prevScrollPos, setPrevScrollPos] = useState<number>(0);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const [isOpen, setIsOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [prevY, setPrevY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
-      const shouldHideNavbar = currentScrollPos > prevScrollPos && currentScrollPos > 50;
-
-      setIsScrolled(shouldHideNavbar);
-      setPrevScrollPos(currentScrollPos);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setVisible(y < prevY || y < 50);
+      setPrevY(y);
     };
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [prevY]);
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [prevScrollPos]);
+  const linkClass =
+    'nav-link block text-xs font-medium tracking-widest uppercase text-gray-500 hover:text-gray-900 transition-colors duration-200 cursor-pointer';
 
   return (
     <>
-      <nav className={`bg-white shadow-md font-sGrotesk fixed top-0 left-0 w-full z-50 transition-transform duration-300 transform ${isScrolled ? "-translate-y-full" : "translate-y-0"}`} style={{ backdropFilter: "blur(10px)" }}>
-        <div className="flex justify-between items-center h-16 p-4 mt-4">
+      <nav
+        className={`fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-100 transition-transform duration-300 ${
+          visible ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
+        <div className="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between">
+          <span className="font-mono text-sm font-medium tracking-wider">IPO</span>
 
-          {/* Logo */}
-          <img className="w-10 ml-2" src="/images/bookz.png" alt="reading Book Logo" />
-
-          {/* Hamburger menu button for small screens */}
-          <div className="flex md:hidden">
-            <button onClick={toggleMenu} className="text-gray-600 focus:outline-none">
-              <img
-                className={`w-4 ${isOpen ? 'hidden' : 'block'}`}
-                src="/images/menu-burger2.png"
-                alt="menu"
-              />
-              <img
-                className={`w-4 ${isOpen ? 'block' : 'hidden'}`}
-                src="/images/cross.png"
-                alt="close"
-              />
-            </button>
-          </div>
-
-          {/* This div will be hidden on small screens */}
-          <div className={`hidden md:flex md:flex-row md:items-center md:ml-auto`}>
-            <Link to="about" spy={true} smooth={true} offset={-70} duration={550} className="block mt-4 md:mt-0 text-gray-600 hover:text-red-900 font-bold mx-2 cursor-pointer">
-              About
-            </Link>
-            <Link to="projects" spy={true} smooth={true} offset={-70} duration={550} className="block mt-4 md:mt-0 text-gray-600 hover:text-red-900 font-bold mx-2 cursor-pointer">
-              Projects
-            </Link>
-            <Link to="contact" spy={true} smooth={true} offset={-70} duration={550} className="block mt-4 md:mt-0 text-gray-600 hover:text-red-900 font-bold mx-2 cursor-pointer">
-              Contact
-            </Link>
-            <a href="./IrvinPelcaztreOrtegaResumeMx2.pdf" target="_blank" rel="noopener noreferrer" className="block mt-4 md:mt-0 text-gray-600 hover:text-red-900 font-bold mx-2 cursor-pointer">
-              Resume
+          {/* Desktop */}
+          <div className="hidden md:flex items-center gap-8">
+            {['about', 'projects', 'experience', 'contact'].map((s) => (
+              <Link key={s} to={s} spy smooth offset={-56} duration={500} className={linkClass}>
+                {s}
+              </Link>
+            ))}
+            <a
+              href="./IrvinPelcaztreOrtegaResumeMx2.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={linkClass}
+            >
+              Resume ↗
             </a>
           </div>
+
+          {/* Hamburger */}
+          <button
+            className="md:hidden text-gray-500 focus:outline-none"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className="font-mono text-xs tracking-widest">{isOpen ? '✕' : '☰'}</span>
+          </button>
         </div>
       </nav>
 
-      {/* Overlay for smaller screens */}
+      {/* Mobile overlay */}
       {isOpen && (
-        <div className="fixed inset-0 z-40 flex ">
-          <div className="w-full bg-black opacity-50" onClick={toggleMenu}></div>
-          <div className="w-full bg-white p-4 relative flex flex-col items-center justify-center">
-            <button onClick={toggleMenu} className="absolute top-4 right-4 text-gray-600 focus:outline-none">
-              <img className="w-8" src="/images/cross.png" alt="close" />
-            </button>
-            <Link to="about" spy={true} smooth={true} offset={-70} duration={650} className=" block mt-4 text-gray-600 hover:text-red-900  font-bold mx-2 cursor-pointer">
-              About
-            </Link>
-            <Link to="projects" spy={true} smooth={true} offset={-70} duration={650} className="block mt-4 text-gray-600 hover:text-red-900 font-bold mx-2 cursor-pointer">
-              Projects
-            </Link>
-            <Link to="contact" spy={true} smooth={true} offset={-70} duration={650} className="block mt-4 text-gray-600 hover:text-red-900 font-bold mx-2 cursor-pointer">
-              Contact
-            </Link>
-            <a href="./IrvinPelcaztreOrtegaResumeMx2.pdf" target="_blank" rel="noopener noreferrer" className="block mt-4 text-gray-600 hover:text-red-900 font-bold mx-2 cursor-pointer">
-              Resume
+        <div className="fixed inset-0 z-40 flex">
+          <div className="w-1/3 bg-black/40" onClick={() => setIsOpen(false)} />
+          <div className="w-2/3 bg-white flex flex-col items-start justify-center px-10 gap-8">
+            {['about', 'projects', 'experience', 'contact'].map((s) => (
+              <Link
+                key={s}
+                to={s}
+                spy
+                smooth
+                offset={-56}
+                duration={500}
+                className={`${linkClass} text-base`}
+                onClick={() => setIsOpen(false)}
+              >
+                {s}
+              </Link>
+            ))}
+            <a
+              href="./IrvinPelcaztreOrtegaResumeMx2.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${linkClass} text-base`}
+              onClick={() => setIsOpen(false)}
+            >
+              Resume ↗
             </a>
           </div>
         </div>
